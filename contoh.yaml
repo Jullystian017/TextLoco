@@ -1,0 +1,50 @@
+# Cara membuat copypasta baru
+# Definisi copypasta mengikuti format YAML
+# https://learnxinyminutes.com/docs/yaml/
+
+# Nama copypasta.
+name: Contoh Copypasta
+
+# Daftar inputan copypasta
+inputs:
+  # Definisikan variabel input string bebas "who"
+  - # Nama variabel
+    name: who
+    # Deskripsi variabel
+    description: Siapa?
+    # Input nilai default yang terisi otomatis.
+    # Jika tidak ada, maka nilai "default" dianggap kosong.
+    default: you
+
+  # Definisikan variabel input pilihan ganda "faction"
+  - name: faction
+    description: Faksi Terlibat
+    # Input pilihan yang memungkinkan
+    choice: [Masked Fools, Fatui]
+    # Nilai default yang dipilih. Indeks mulai dari 1, jadi 1 = Masked Fools.
+    # Jika tidak ada, maka indeks defaultnya 1.
+    default: 1
+
+# Teks copypasta. Variabel yang ada dalam "inputs" harus diapit dengan kurung kurawal
+# yang kemudian akan dilakukan interpolasi string dengan variabel yang sudah didefinisikan.
+#
+# Format interpolasi string adalah "{<nama variable>[:<transformasi>][:<pemangkasan>]}"
+# * <nama variable> - Nama variable yang sudah didefinisikan pada "inputs"
+# * <transformasi> - Transformasi input. Nilai yang memungkinkan:
+#                    * none - Tidak dilakukan transformasi input.
+#                    * camelcase - Kata pertama setelah spasi akan diubah jadi huruf kapital.
+#                    * uppercase - Semua kata diubah jadi huruf kapital.
+#                    * lowercase - Semua kata diubah jadi huruf kecil.
+#                    Jika opsi "transform" bukan salah 1 dari diatas atau tidak dimasukkan,
+#                    maka diasumsikan opsi "none".
+# * <pemangkasan> - Input angka untuk memangkas beberapa huruf dari depan jika positif, atau dari belakang jika negatif (trim/substring).
+#                   Jika tidak ada, maka string tidak akan dipangkas.
+#
+# Catatan: Memilai paragraf baru harus menggunakan 2 atau lebih baris baru!
+# Berikut contoh teks cerita Masked Fools dari Honkai Star Rail
+text: |
+  "Even a Faction like {faction:camelcase} sing praises of their Aeon, because Aeon will never give
+  {who} up, never let {who:uppercase} down, or abandon {who:camelcase}. The Aeon will never make
+  {who:lowercase} cry, say goodbye, or tell a lie and hurt {who:none}."
+
+  — Ast Rickley, super popstar of the Epsilon XII Galaxy
