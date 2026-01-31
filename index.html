@@ -5,14 +5,311 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="Content-Type" content="text/html" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>TextLoco</title>
+	<title>TextLoco - Generator Copypasta Halu</title>
 	<meta name="description" content="Generator Copypasta Halu">
 	<meta name="keywords" content="copypasta, generator, stres, halu">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.5.0/dist/semantic.min.css" />
 	<style>
+		:root {
+			--primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+			--secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+			--accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+			--bg-dark: #0f0f23;
+			--bg-card: rgba(255, 255, 255, 0.05);
+			--text-primary: #ffffff;
+			--text-secondary: #a0aec0;
+			--border-radius: 16px;
+			--shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+			--shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+			--shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+			--shadow-glow: 0 0 40px rgba(102, 126, 234, 0.3);
+		}
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		body {
+			font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+			background: var(--bg-dark);
+			background-image:
+				radial-gradient(at 0% 0%, rgba(102, 126, 234, 0.15) 0px, transparent 50%),
+				radial-gradient(at 100% 100%, rgba(118, 75, 162, 0.15) 0px, transparent 50%);
+			background-attachment: fixed;
+			min-height: 100vh;
+			color: var(--text-primary);
+			padding: 2rem 1rem;
+		}
+
+		/* Header Styles */
+		.app-header {
+			text-align: center;
+			margin-bottom: 3rem;
+			animation: fadeInDown 0.8s ease-out;
+		}
+
+		.app-title {
+			font-size: 3.5rem;
+			font-weight: 800;
+			background: var(--primary-gradient);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			margin-bottom: 0.5rem;
+			letter-spacing: -0.02em;
+		}
+
+		.app-subtitle {
+			font-size: 1.25rem;
+			color: var(--text-secondary);
+			font-weight: 500;
+		}
+
+		/* Main Container */
+		.main-container {
+			max-width: 900px;
+			margin: 0 auto;
+			animation: fadeInUp 0.8s ease-out;
+		}
+
+		/* Glass Card Effect */
+		.glass-card {
+			background: var(--bg-card);
+			backdrop-filter: blur(20px);
+			-webkit-backdrop-filter: blur(20px);
+			border: 1px solid rgba(255, 255, 255, 0.1);
+			border-radius: var(--border-radius);
+			padding: 2rem;
+			box-shadow: var(--shadow-lg);
+			transition: all 0.3s ease;
+		}
+
+		.glass-card:hover {
+			box-shadow: var(--shadow-glow);
+			border-color: rgba(102, 126, 234, 0.3);
+		}
+
+		/* Section Styles */
+		.section-title {
+			font-size: 1.5rem;
+			font-weight: 700;
+			margin-bottom: 1.5rem;
+			color: var(--text-primary);
+			display: flex;
+			align-items: center;
+			gap: 0.5rem;
+		}
+
+		.section-title i {
+			background: var(--primary-gradient);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+		}
+
+		/* Dropdown Styles */
+		.ui.dropdown {
+			background: rgba(255, 255, 255, 0.05) !important;
+			border: 1px solid rgba(255, 255, 255, 0.1) !important;
+			color: var(--text-primary) !important;
+			border-radius: 12px !important;
+			padding: 1rem !important;
+			transition: all 0.3s ease !important;
+		}
+
+		.ui.dropdown:hover {
+			border-color: rgba(102, 126, 234, 0.5) !important;
+			box-shadow: 0 0 20px rgba(102, 126, 234, 0.2) !important;
+		}
+
+		.ui.dropdown .menu {
+			background: rgba(15, 15, 35, 0.95) !important;
+			backdrop-filter: blur(20px) !important;
+			border: 1px solid rgba(255, 255, 255, 0.1) !important;
+			border-radius: 12px !important;
+			box-shadow: var(--shadow-lg) !important;
+		}
+
+		.ui.dropdown .menu>.item {
+			color: var(--text-primary) !important;
+			padding: 0.8rem 1rem !important;
+			transition: all 0.2s ease !important;
+		}
+
+		.ui.dropdown .menu>.item:hover {
+			background: rgba(102, 126, 234, 0.2) !important;
+		}
+
+		/* Form Styles */
+		.ui.form .field>label {
+			color: var(--text-primary) !important;
+			font-weight: 600 !important;
+			margin-bottom: 0.5rem !important;
+			font-size: 0.95rem !important;
+		}
+
+		.ui.form input[type="text"],
+		.ui.form select,
+		.ui.form textarea {
+			background: rgba(255, 255, 255, 0.05) !important;
+			border: 1px solid rgba(255, 255, 255, 0.1) !important;
+			color: var(--text-primary) !important;
+			border-radius: 12px !important;
+			padding: 0.9rem !important;
+			transition: all 0.3s ease !important;
+		}
+
+		.ui.form input[type="text"]:focus,
+		.ui.form select:focus,
+		.ui.form textarea:focus {
+			background: rgba(255, 255, 255, 0.08) !important;
+			border-color: rgba(102, 126, 234, 0.6) !important;
+			box-shadow: 0 0 20px rgba(102, 126, 234, 0.2) !important;
+			outline: none !important;
+		}
+
+		.ui.form input::placeholder {
+			color: var(--text-secondary) !important;
+		}
+
+		.ui.form textarea {
+			min-height: 150px !important;
+			resize: vertical !important;
+			font-family: 'Inter', monospace !important;
+		}
+
+		/* Button Styles */
+		.ui.button {
+			border-radius: 12px !important;
+			padding: 1rem 2rem !important;
+			font-weight: 600 !important;
+			transition: all 0.3s ease !important;
+			border: none !important;
+			text-transform: none !important;
+			letter-spacing: 0.02em !important;
+		}
+
+		.ui.blue.button {
+			background: var(--accent-gradient) !important;
+			color: white !important;
+			box-shadow: 0 4px 15px rgba(79, 172, 254, 0.3) !important;
+		}
+
+		.ui.blue.button:hover {
+			transform: translateY(-2px) !important;
+			box-shadow: 0 6px 25px rgba(79, 172, 254, 0.4) !important;
+		}
+
+		.ui.blue.button:active {
+			transform: translateY(0) !important;
+		}
+
+		.ui.red.button {
+			background: var(--secondary-gradient) !important;
+			color: white !important;
+			box-shadow: 0 4px 15px rgba(245, 87, 108, 0.3) !important;
+		}
+
+		.ui.red.button:hover {
+			transform: translateY(-2px) !important;
+			box-shadow: 0 6px 25px rgba(245, 87, 108, 0.4) !important;
+		}
+
+		/* Checkbox Styles */
+		.ui.checkbox label {
+			color: var(--text-primary) !important;
+			font-weight: 500 !important;
+		}
+
+		.ui.checkbox input:checked~label:before {
+			background: var(--primary-gradient) !important;
+			border-color: transparent !important;
+		}
+
+		/* Segment Overrides */
+		.ui.segment {
+			background: transparent !important;
+			border: none !important;
+			box-shadow: none !important;
+			padding: 0 !important;
+		}
+
+		.ui.red.segment {
+			background: var(--bg-card) !important;
+			backdrop-filter: blur(20px) !important;
+			-webkit-backdrop-filter: blur(20px) !important;
+			border: 1px solid rgba(255, 255, 255, 0.1) !important;
+			border-radius: var(--border-radius) !important;
+			padding: 2rem !important;
+			margin: 1.5rem 0 !important;
+			box-shadow: var(--shadow-md) !important;
+		}
+
+		/* Footer Styles */
 		footer {
-			padding: 1em;
-			text-align: center
+			padding: 3rem 1rem 2rem;
+			text-align: center;
+			color: var(--text-secondary);
+			font-size: 0.95rem;
+			margin-top: 4rem;
+			border-top: 1px solid rgba(255, 255, 255, 0.1);
+		}
+
+		footer a {
+			color: #667eea;
+			text-decoration: none;
+			transition: all 0.3s ease;
+			font-weight: 500;
+		}
+
+		footer a:hover {
+			color: #764ba2;
+			text-decoration: underline;
+		}
+
+		/* Animations */
+		@keyframes fadeInDown {
+			from {
+				opacity: 0;
+				transform: translateY(-30px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes fadeInUp {
+			from {
+				opacity: 0;
+				transform: translateY(30px);
+			}
+
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+
+		/* Responsive Design */
+		@media (max-width: 768px) {
+			.app-title {
+				font-size: 2.5rem;
+			}
+
+			.glass-card {
+				padding: 1.5rem;
+			}
+
+			body {
+				padding: 1rem 0.5rem;
+			}
 		}
 	</style>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.min.js"></script>
@@ -258,37 +555,48 @@
 	</script>
 </head>
 
-<body style="padding:1em">
-	<section class="ui green segment">
-		<h1 class="ui header"></i><i class="paste icon"></i> Halu Generator</h1>
-		<select id="copypasta_list" class="ui fluid dropdown">
-			<option value="" default>Pilih Copypasta</option>
-		</select>
-		<div class="ui red segment">
-			<h2 class="ui header">Parameter</h2>
-			<div id="copypasta_inputs" class="ui form">
+<body>
+	<div class="app-header">
+		<h1 class="app-title">✨ TextLoco</h1>
+		<p class="app-subtitle">Generator Copypasta Halu - Bikin Cerita Seru!</p>
+	</div>
+
+	<div class="main-container">
+		<section class="glass-card">
+			<h2 class="section-title"><i class="paste icon"></i>Pilih Template</h2>
+			<select id="copypasta_list" class="ui fluid dropdown">
+				<option value="" default>Pilih Copypasta</option>
+			</select>
+
+			<div class="ui red segment">
+				<h2 class="section-title">⚙️ Parameter</h2>
+				<div id="copypasta_inputs" class="ui form">
+				</div>
+				<div class="ui checkbox" style="margin-top:1.5rem">
+					<input id="ignore_transformer" type="checkbox">
+					<label>Abaikan koreksi kapitalisasi</label>
+				</div>
 			</div>
-			<div class="ui checkbox" style="margin-top:1em">
-				<input id="ignore_transformer" type="checkbox">
-				<label>Abaikan koreksi kapitalisasi</label>
+
+			<div class="ui form" style="margin-top: 1.5rem;">
+				<div class="field">
+					<label>📝 Hasil</label>
+					<textarea id="copypasta_result" readonly></textarea>
+				</div>
 			</div>
-		</div>
-		<div class="ui form">
-			<textarea id="copypasta_result" readonly></textarea>
-		</div>
-		<br />
-		<div class="ui checkbox">
-			<input id="copypasta_2lf" type="checkbox">
-			<label>Paragraf baru, 2 baris baru</label>
-		</div>
-		<br />
-		<br />
-		<button id="copypasta_copy" class="ui fluid blue button">
-			<i class="copy icon"></i>Salin
-		</button>
-	</section>
+
+			<div class="ui checkbox" style="margin-top: 1rem;">
+				<input id="copypasta_2lf" type="checkbox">
+				<label>Paragraf baru, 2 baris baru</label>
+			</div>
+
+			<button id="copypasta_copy" class="ui fluid blue button" style="margin-top: 1.5rem;">
+				<i class="copy icon"></i>Salin ke Clipboard
+			</button>
+		</section>
+	</div>
 	<footer>
-		<p>Tolong Jangan Dianggap Serius! | <a href="https://github.com/MikuAuahDark/gws-pasta">Kode Sumber</a> | Commit <a href="PAGE_COMMIT_LINK">PAGE_COMMIT_SHA</a> (Page) <a href="COPYPASTA_COMMIT_LINK">COPYPASTA_COMMIT_SHA</a> (Copypasta)</p>
+		<p>© 2025 <strong>Jullystian017</strong> | Tolong Jangan Dianggap Serius!</p>
 	</footer>
 </body>
 
